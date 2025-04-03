@@ -4,6 +4,9 @@ import React, { useState } from 'react';
 import { Upload } from 'lucide-react';
 import { supabase} from  '@/app/lib/supabase'
 import { useRouter } from 'next/navigation';
+import useStore from '@/app/stores/studentStore';
+
+
 export default function CreateStudent() {
     
     const [name, setName] = useState("");
@@ -15,6 +18,7 @@ export default function CreateStudent() {
     const [gender, setgender] = useState("");
 
     const router = useRouter();
+    const {student,setActiveStudent}=useStore()
 
     
   const handleUpload = async () => {

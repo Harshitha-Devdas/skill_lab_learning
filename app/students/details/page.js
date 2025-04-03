@@ -1,5 +1,5 @@
 "use client";
-
+import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 
 export default function StudentDetails() {
@@ -30,3 +30,11 @@ export default function StudentDetails() {
     </div>
   );
 }
+
+export default function StudentDetails() {
+    return (
+      <Suspense fallback={<p>Loading...</p>}>
+        <StudentDetails/>
+      </Suspense>
+    );
+  }
