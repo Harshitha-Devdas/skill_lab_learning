@@ -1,8 +1,8 @@
 "use client";
-import { Suspense } from "react";
-import { useSearchParams } from "next/navigation";
 
-export default function StudentDetailsContent() {
+import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
+export default function StudentDetails() {
   const searchParams = useSearchParams();
 
   // Extract data from URL parameters
@@ -15,6 +15,7 @@ export default function StudentDetailsContent() {
   const gender = searchParams.get("gender") || "N/A";
 
   return (
+    <Suspense fallback={<p>Loading...</p>}>
     <div className="min-h-screen flex flex-col justify-center items-center bg-white p-10 text-black">
       <h1 className="text-3xl font-bold text-green-500 mb-5">Student Details</h1>
 
@@ -28,13 +29,7 @@ export default function StudentDetailsContent() {
         <p><strong>Gender:</strong> {gender}</p>
       </div>
     </div>
+    </Suspense>
   );
 }
 
-export function StudentDetails() {
-    return (
-      <Suspense fallback={<p>Loading...</p>}>
-        <StudentDetailsContent/>
-      </Suspense>
-    );
-  }

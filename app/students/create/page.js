@@ -45,7 +45,7 @@ export default function CreateStudent() {
           age: age,
         },
       ]);
-
+          
       if (error) {
         console.error("Error inserting data:", error.message);
         alert("Failed to create student. Please try again.");
