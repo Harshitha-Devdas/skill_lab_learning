@@ -1,18 +1,19 @@
 "use client";
 
 import { useSearchParams } from 'next/navigation';
+import { Suspense } from "react";
 
 export default function StudentDetails() {
   const searchParams = useSearchParams();
 
   // Extract data from URL parameters
-  const name = searchParams.get("name");
-  const usn = searchParams.get("usn");
-  const phone = searchParams.get("phone");
-  const age = searchParams.get("age");
-  const email = searchParams.get("email");
-  const address = searchParams.get("address");
-  const gender = searchParams.get("gender");
+  const name = searchParams.get("name")|| "N/A";
+  const usn = searchParams.get("usn")|| "N/A";
+  const phone = searchParams.get("phone")|| "N/A";
+  const age = searchParams.get("age")|| "N/A";
+  const email = searchParams.get("email")|| "N/A";
+  const address = searchParams.get("address")|| "N/A";
+  const gender = searchParams.get("gender")|| "N/A";
 
   return (
     <div className='min-h-screen flex flex-col justify-center items-center bg-white p-10 text-black'>
@@ -30,3 +31,11 @@ export default function StudentDetails() {
     </div>
   );
 }
+
+export default function StudentDetails() {
+    return (
+      <Suspense fallback={<p>Loading...</p>}>
+        <StudentDetails />
+      </Suspense>
+    );
+  }
