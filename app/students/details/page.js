@@ -2,7 +2,7 @@
 import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 
-export default function StudentDetails() {
+export default function StudentDetailsContent() {
   const searchParams = useSearchParams();
 
   // Extract data from URL parameters
@@ -31,10 +31,10 @@ export default function StudentDetails() {
   );
 }
 
-export default function StudentDetails() {
+export function StudentDetails() {
     return (
       <Suspense fallback={<p>Loading...</p>}>
-        <StudentDetails/>
+        <StudentDetailsContent/>
       </Suspense>
     );
   }
