@@ -15,7 +15,7 @@ export default function StudentDetails() {
   const gender = searchParams.get("gender") || "N/A";
 
   return (
-    <Suspense fallback={<p>Loading...</p>}>
+    <Suspense>
     <div className="min-h-screen flex flex-col justify-center items-center bg-white p-10 text-black">
       <h1 className="text-3xl font-bold text-green-500 mb-5">Student Details</h1>
 
